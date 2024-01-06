@@ -1,1 +1,14 @@
-<div>works</div>
+<div class="card">
+  @if (store.id()) {
+    <header>Advice #{{ store.id() }}</header>
+    <main>"{{ store.advice() }}"</main>
+    <footer>
+      <app-line />
+    </footer>
+    <button (click)="store.getRandomAdvice()">
+      <app-dice />
+    </button>
+  } @else {
+    <div>Seems like an error occured, sorry!</div>
+  }
+</div>

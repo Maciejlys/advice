@@ -1,0 +1,62 @@
+:host {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  color: #cee1ec;
+  padding: 1rem;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 600px;
+    background: #313a49;
+    padding: 3rem;
+    border-radius: 1rem;
+    position: relative;
+
+    header {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: RobotoMono;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: var(--green-color);
+    }
+
+    main {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    button {
+      left: 50%;
+      transform: translate(-50%);
+      display: grid;
+      place-items: center;
+      position: absolute;
+      background: var(--green-color);
+      border: none;
+      padding: 1rem;
+      border-radius: 50%;
+      width: 60px;
+      aspect-ratio: 1/1;
+      bottom: -30px;
+      cursor: pointer;
+
+      &:hover {
+        background: #49df97;
+      }
+    }
+
+    footer {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border-top: 1px solid #535c6b;
+      width: 100%;
+      position: relative;
+    }
+  }
+}
