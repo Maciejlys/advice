@@ -4,11 +4,18 @@ import { RouterOutlet } from '@angular/router';
 import { AdviceStore } from './shared/data-access/store';
 import { DiceComponent } from './shared/ui/dice/dice.component';
 import { LineComponent } from './shared/ui/line/line.component';
+import { SkeletonComponent } from './shared/ui/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, DiceComponent, LineComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    DiceComponent,
+    LineComponent,
+    SkeletonComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

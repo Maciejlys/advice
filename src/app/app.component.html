@@ -1,14 +1,18 @@
 <div class="card">
-  @if (store.id()) {
-    <header>Advice #{{ store.id() }}</header>
-    <main>"{{ store.advice() }}"</main>
-    <footer>
-      <app-line />
-    </footer>
-    <button (click)="store.getRandomAdvice()">
-      <app-dice />
-    </button>
-  } @else {
-    <div>Seems like an error occured, sorry!</div>
-  }
+  <header>Advice #{{ store.id() }}</header>
+  <main>
+    @if (store.isFulfilled()) {
+      {{ store.quotedAdvice() }}
+    } @else if (store.isPending()) {
+      <app-skeleton />
+    } @else {
+      {{ store.error() }}
+    }
+  </main>
+  <footer>
+    <app-line />
+  </footer>
+  <button (click)="store.getRandomAdvice()">
+    <app-dice />
+  </button>
 </div>
