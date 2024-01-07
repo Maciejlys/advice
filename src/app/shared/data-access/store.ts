@@ -1,6 +1,7 @@
 import {
   patchState,
   signalStore,
+  withComputed,
   withHooks,
   withMethods,
   withState,
@@ -9,25 +10,39 @@ import { catchError, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Advice, Slip } from '../model';
 import { apiUrl } from '../constants';
-import { inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
+import {
+  withRequestStatus,
+  setError,
+  setPending,
+  setFulfilled,
+} from './with-request-status';
 
 export const AdviceStore = signalStore(
   { providedIn: 'root' },
   withState<Advice>({
-    id: undefined,
-    advice: undefined,
+    id: 117,
+    advice:
+      'some very long advice that is in qoutes for testing this shit lets see',
   }),
+  withRequestStatus(),
+  withComputed((store) => ({
+    quotedAdvice: computed(() => `"${store.advice()}"`),
+  })),
   withMethods((store, http = inject(HttpClient)) => ({
     getRandomAdvice() {
+      patchState(store, setPending());
       http
         .get<Slip>(apiUrl)
         .pipe(
-          catchError(() =>
-            of<Slip>({ slip: { id: undefined, advice: undefined } }),
-          ),
-          tap((res) =>
-            patchState(store, { id: res.slip.id, advice: res.slip.advice }),
-          ),
+          catchError((err: Error) => {
+            patchState(store, setError(err.message));
+            return of<Slip>({ slip: { id: undefined, advice: undefined } });
+          }),
+          tap((res) => {
+            patchState(store, { id: res.slip.id, advice: res.slip.advice });
+            patchState(store, setFulfilled());
+          }),
         )
         .subscribe();
     },
