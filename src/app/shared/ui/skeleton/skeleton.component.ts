@@ -1,5 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
-import { BarComponent } from './bar/bar.component';
+import { BarComponent } from '../bar/bar.component';
 
 @Component({
   selector: 'app-skeleton',

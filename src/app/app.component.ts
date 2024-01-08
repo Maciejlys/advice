@@ -5,7 +5,7 @@ import { AdviceStore } from './shared/data-access/store';
 import { DiceComponent } from './shared/ui/dice/dice.component';
 import { LineComponent } from './shared/ui/line/line.component';
 import { SkeletonComponent } from './shared/ui/skeleton/skeleton.component';
-import { BarComponent } from './shared/ui/skeleton/bar/bar.component';
+import { BarComponent } from './shared/ui/bar/bar.component';
 
 @Component({
   selector: 'app-root',
