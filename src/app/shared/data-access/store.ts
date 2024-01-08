@@ -6,7 +6,7 @@ import {
   withMethods,
   withState,
 } from '@ngrx/signals';
-import { EMPTY, catchError, of, tap } from 'rxjs';
+import { EMPTY, catchError, delay, of, tap } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Advice, Slip } from '../model';
 import { apiUrl } from '../constants';
@@ -34,6 +34,7 @@ export const AdviceStore = signalStore(
       http
         .get<Slip>(apiUrl)
         .pipe(
+          delay(1000), // delay just for fun skeleton animation :D
           tap((res) => {
             patchState(store, { id: res.slip.id, advice: res.slip.advice });
             patchState(store, setFulfilled());
