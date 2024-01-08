@@ -24,7 +24,7 @@ describe('withRequestStatus', () => {
     expect(store.error()).toEqual('error');
   });
 
-  it('setFulfilled should set fulfilled to true', () => {
+  it(`setFulfilled should set requestStatus to ${Statuses.Fulfilled} and isFulfilled to true`, () => {
     const Store = signalStore(withRequestStatus());
     const store = new Store();
 
@@ -35,7 +35,7 @@ describe('withRequestStatus', () => {
     expect(store.isFulfilled()).toBeTruthy();
   });
 
-  it('setPending should set pending to true', () => {
+  it(`setPending should set requestStatus to ${Statuses.Pending} and isPending to true`, () => {
     const Store = signalStore(withRequestStatus());
     const store = new Store();
 

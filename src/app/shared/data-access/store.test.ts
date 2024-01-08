@@ -44,8 +44,7 @@ describe('AdviceStore', () => {
   it('should set an error msg when error occurs', () => {
     const emsg = 'deliberate 404 error';
 
-    expect(store.id()).toBeUndefined();
-    expect(store.advice()).toBeUndefined();
+    expect(store.error()).toBeNull();
 
     const req = httpController.expectOne(apiUrl);
 
