@@ -17,13 +17,14 @@
     position: relative;
 
     header {
-      text-align: center;
       font-size: 0.8rem;
       font-weight: 700;
       font-family: RobotoMono;
       text-transform: uppercase;
       letter-spacing: 0.2rem;
       color: var(--green-color);
+      display: flex;
+      justify-content: center;
     }
 
     main {

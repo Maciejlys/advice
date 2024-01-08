@@ -1,5 +1,14 @@
 <div class="card">
-  <header>Advice #{{ store.id() }}</header>
+  <header>
+    <span>Advice #</span>
+    <span>
+      @if (store.isFulfilled()) {
+        {{ store.id() }}
+      } @else if (store.isPending()) {
+        <app-bar [width]="50" [height]="15" />
+      }
+    </span>
+  </header>
   <main>
     @if (store.isFulfilled()) {
       {{ store.quotedAdvice() }}
