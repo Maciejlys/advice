@@ -1,6 +1,6 @@
 # Advice
 
-A very small project project you can visit [here](https://deft-croquembouche-edc440.netlify.app/) <br>
+A very small project you can visit [here](https://deft-croquembouche-edc440.netlify.app/) <br>
 UX and idea for this small project was taken from [FrontendMentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db)
 
 # Why
