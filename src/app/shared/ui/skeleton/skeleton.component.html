@@ -1,3 +1,3 @@
-@for (random of randomArray; track random) {
-  <div class="skeleton" [style.width.px]="randomWidth"></div>
+@for (random of randomArray(); track random; let i = $index) {
+  <app-bar />
 }

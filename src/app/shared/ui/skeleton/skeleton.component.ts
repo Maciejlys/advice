@@ -1,22 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
+import { BarComponent } from './bar/bar.component';
 
 @Component({
   selector: 'app-skeleton',
   standalone: true,
-  imports: [],
+  imports: [BarComponent],
   templateUrl: './skeleton.component.html',
   styleUrl: './skeleton.component.scss',
 })
 export class SkeletonComponent {
-  get randomWidth() {
-    return this.randomNumber * 100 * 1.5;
-  }
-
-  get randomNumber() {
-    return Math.floor(Math.random() * 3) + 1;
-  }
-
-  get randomArray() {
-    return new Array(this.randomNumber);
-  }
+  randomNumber = signal(Math.floor(Math.random() * 3) + 1);
+  randomArray = computed(() => new Array(this.randomNumber()));
 }
